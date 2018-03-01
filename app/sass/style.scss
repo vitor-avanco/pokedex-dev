@@ -1,22 +1,41 @@
-body{
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@mixin bp-large {
+    @media only screen and (max-width: 60em) {
+        @content;
+    }
+}
+
+@mixin bp-medium {
+    @media only screen and (max-width: 40em) {
+        @content;
+    }
+}
+
+@mixin bp-small {
+    @media only screen and (max-width: 30em) {
+        @content;
+    }
+}
+
+body {
     background: #f6f6f6
 }
-@media (min-width: 992px){
-    .navbar-toggleable-md .navbar-nav {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
+
+header {
+    background: #ee1515;
+    padding: 10px 0px;
+    h1 {
+        text-align: center;
+        color: #FFFFFF;
+        @include font-size(26px);
     }
-    .navbar-toggleable-md .navbar-nav .nav-link {
-        padding-right: .5rem;
-        padding-left: .5rem;
-    }
-}
-.navbar-inverse .navbar-nav .active>.nav-link, .navbar-inverse .navbar-nav .nav-link.active, .navbar-inverse .navbar-nav .nav-link.open, .navbar-inverse .navbar-nav .open>.nav-link {
-    color: #fff;
-}
-.navbar-inverse .navbar-nav .nav-link {
-    color: rgba(255,255,255,.8);
 }

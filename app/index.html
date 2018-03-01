@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="pokedex">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="/assets/css/dependencias.min.css">
-        <link rel="stylesheet" href="/assets/css/app.min.css">
-        <link rel="stylesheet" href="/assets/css/style.min.css">
+    <title>Document</title>
 
-    </head>
-    <body>
-        <header class="main-header navbar navbar-toggleable-md navbar-inverse bg-primary" ng-include="'/template/header.html'"></header>
+    <link rel="stylesheet" href="/assets/css/dependencias.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
 
-            <div class="site-content" ui-view></div>
+</head>
 
-        <footer class="main-footer" ng-include="'/template/footer.html'"></footer>
+<body>
+    <header class="main-header" ng-include="'/template/header.html'"></header>
 
-        <script src="/assets/js/dependencias.min.js"></script>
-        <script src="/assets/js/app.min.js"></script>
-    </body>
+    <div class="site-content" ui-view></div>
+
+    <footer class="main-footer" ng-include="'/template/footer.html'"></footer>
+
+    <script src="/assets/js/dependencias.min.js"></script>
+    <script src="/assets/js/app.min.js"></script>
+</body>
+
 </html>
