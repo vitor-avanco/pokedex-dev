@@ -1,8 +1,8 @@
 <div class="container">
 
-
-    <div class="row">
-        <pokemon-card pokemonid="1" name="Bulbasaur" class="col-4 col-sm-3 col-md-2"></pokemon-card>
+        <input type="text" ng-model="searchText">
+    <div class="row" ng-controller="HomeCtrl as homectrl">
+        <pokemon-card ng-repeat="pokemon in homectrl.listaPokemons | filter:searchText" pokemonid="{{pokemon.entry_number}}" name="{{pokemon.pokemon_species.name | capitalize }}" class="col-4 col-sm-3 col-md-2"></pokemon-card>
     </div>
 
 </div>

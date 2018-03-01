@@ -1,1 +1,28 @@
-Detalhe do pokemon
+<div class="detalhe-do-pokemon" ng-controller="DetalheCtrl as detalhe">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-sm-2">
+                <img src="{{detalhe.pokemonSprite}}" />
+            </div>
+            <div class="col-6 col-sm-5">
+                <h1>{{detalhe.pokemonName | capitalize}}</h1>
+                <div class="pokemon-habilidades">
+                    Habilidades:
+                    <ul class="lista-info">
+                        <li ng-repeat="moves in detalhe.pokemonMoves">
+                            {{moves.move.name | capitalize | removeHiffen}} 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5">
+                Status base:
+                <ul class="lista-info">
+                    <li ng-repeat="stats in detalhe.pokemonStats">
+                        {{stats.stat.name | capitalize | removeHiffen }}: {{stats.base_stat}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
