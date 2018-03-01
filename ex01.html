@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="pokedex">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js" type="text/javascript"></script>
+</head>
+<body ng-controller="MeuController as ctrl">
+    <h1>{{ctrl.name}}</h1>
+
+
+    <field id="nome" label="Digite um nome" model="ctrl.name" ></field>
+
+    <script>
+        angular.module('pokedex', []);
+
+        angular.module('pokedex').controller('MeuController', [
+            'utils',
+
+            function(utils){
+                const self = this;
+                self.name = utils.moeda(10);
+                self.inc = function(){
+                    self.value++
+                }
+            }
+        ]);
+
+        angular.module('pokedex').service('utils', [
+        
+            function(){
+                this.moeda = function(input){
+                    return 'R$ '+ input.toFixed(2).replace('.',','); 
+                }
+            }
+        ]);
+
+
+        angular.module('pokedex').component('field', {
+            bindings: {
+                id: '@', //string ou valor simples
+                label: '@',
+                model: '=' // expressao que deve ser lida pelo angular < nao atualiza o bind / = atualiza o bind 
+            },
+            template: '{{$ctrl.label}} <input id="{{ $ctrl.id }}" ng-model="$ctrl.model">'
+        })
+    </script>
+</body>
+</html>
